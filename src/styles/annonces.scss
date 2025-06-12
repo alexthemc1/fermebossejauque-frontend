@@ -1,0 +1,175 @@
+.liste-annonces {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 25px;
+
+  .infos-categorie {
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    left: 50%;
+    text-align: center;
+    transform: translateX(-50%);
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .filtres-categories {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0 30px;
+    gap: 10px;
+
+    button {
+      background-color: $secondary-color;
+      border: none;
+      padding: 8px 16px;
+      border-radius: $border-radius-medium;
+      cursor: pointer;
+      font-size: $font-base;
+      font-weight: 700;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: $secondary-color-light;
+      }
+
+      &.filtre-actif {
+        background-color: $bouton-color2;
+        color: $secondary-color;
+
+        &:hover {
+          background-color: $bouton-color2-darken;
+        }
+      }
+    }
+
+    .filtre-separateur {
+      background-color: $primary-color;
+      margin: 0 5px;
+      height: 25px;
+      width: 2px;
+    }
+  }
+
+  .annonces-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .annonce-card {
+    background: $secondary-color;
+    border-radius: $border-radius-large;
+    overflow: hidden;
+    box-shadow: $box-shadow-light;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+
+      .annonce-image .new-badge {
+        transform: scale(1.1);
+      }
+    }
+
+    .annonce-image {
+      position: relative;
+
+      .new-badge {
+        position: absolute;
+        left: -17px;
+        top: -17px;
+        width: 120px;
+        z-index: 2;
+        transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+      }
+
+      .annonce-background {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      svg {
+        fill: $secondary-color;
+        position: absolute;
+        bottom: 3px;
+        right: -1px;
+        width: 101%;
+        height: 25px;
+        transform: scale(1, -1);
+      }
+    }
+
+    .annonce-texte {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+
+      h3 {
+        margin-top: 0;
+        width: 100%;
+        font-size: $font-medium;
+        color: $text-color;
+      }
+
+      .annonce-header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 10px;
+
+        .annonce-date {
+          font-size: $font-base;
+        }
+
+        .annonce-categorie {
+          background-color: $secondary-color-light;
+          padding: 4px 8px;
+          border-radius: $border-radius-small;
+          font-size: $font-base;
+          font-weight: 500;
+          color: $text-color;
+        }
+      }
+
+      .annonce-description {
+        color: $text-color-light;
+        margin-bottom: 15px;
+      }
+
+
+
+      .voir-plus-btn {
+        display: inline-block;
+        background-color: $bouton-color1;
+        color: $secondary-color;
+        padding: 8px 15px;
+        border-radius: $border-radius-small;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        font-weight: 700;
+
+        &:hover {
+          background-color: color.adjust($bouton-color1, $lightness: -10%);
+        }
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+  .liste-annonces {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+  .infos-categorie{
+    left: 0;
+    transform: none;
+  }
+  }
+}

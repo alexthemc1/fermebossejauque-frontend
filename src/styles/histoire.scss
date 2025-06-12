@@ -1,0 +1,200 @@
+@import './variables.scss';
+
+.histoire-ferme {
+  .histoire-ferme-intro {
+    position: relative;
+    width: 100%;
+    min-height: 200px;
+    background-image: url('../assets/images/histoire1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 60% 70%;
+    filter: grayscale(1);
+    color: $secondary-color;    flex-direction: column;
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: $primary-color;
+      opacity: 0.3;
+      z-index: 1;
+    }
+    h1 {
+      z-index: 2;
+      text-align: center;
+    }
+  }
+
+  .histoire-ferme-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 25px;
+
+    .histoire {
+      position: relative;
+      margin: 60px 0;
+      padding: 20px 0;
+
+      .histoire-line {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 4px;
+        background-color: $bouton-color1;
+        transform: translateX(-50%);
+      }
+
+      .histoire-item {
+        position: relative;
+        margin-bottom: 60px;
+        width: 40%;
+        box-sizing: border-box;
+      }
+
+      .histoire-item.gauche {
+        padding-right: 40px;
+        left: 10%;
+
+        .histoire-content {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+        }
+
+        .histoire-dot {
+          right: -10px;
+        }
+      }
+
+      .histoire-item.droite {
+        padding-left: 40px;
+        left: 50%;
+
+        .histoire-dot {
+          left: -10px;
+        }
+      }
+
+      .histoire-content {
+        position: relative;
+        padding: 20px;
+        background-color: $secondary-color;
+        border-radius: $border-radius-medium;
+        box-shadow: $box-shadow-medium;
+
+        .histoire-annee {
+          display: inline-block;
+          padding: 5px 15px;
+          background-color: $bouton-color1;
+          color: $secondary-color;
+          border-radius: $border-radius-large;
+          font-weight: bold;
+
+          h2 {
+            margin-bottom: 0;
+          }
+        }
+
+        .histoire-title {
+          margin: 10px 0;
+          color: $text-color;
+          font-size: $font-medium;
+
+        }
+
+        .histoire-description {
+          margin-bottom: 15px;
+          line-height: 1.6;
+          color: $text-color-light;
+        }
+
+        .histoire-image {
+          width: 100%;
+          height: auto;
+          border-radius: $border-radius-small;
+          margin-top: 15px;
+        }
+      }
+
+      .histoire-dot {
+        position: absolute;
+        top: 20px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: $background-color;
+        box-shadow: 0 0 0 4px $bouton-color1;
+      }
+    }
+
+    .histoire-conclusion {
+      flex-direction: column;
+      width: 100%;
+
+      .histoire-conclusion-content {
+        width: 70%;
+        object-fit: contain;
+        flex-direction: column;
+
+        img {
+          padding: 10px;
+          width: 100%;
+          border-radius: $border-radius-large;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+@media (max-width: 1024px) {
+  .histoire-ferme {
+
+    .histoire-ferme-content {
+      .histoire {
+        .histoire-line {
+          left: 10px;
+        }
+
+        .histoire-item {
+          width: 100%;
+          padding-left: 40px;
+          padding-right: 0;
+          left: 0;
+        }
+
+        .histoire-item.gauche,
+        .histoire-item.droite {
+          padding-left: 50px;
+          padding-right: 0;
+          left: 0;
+
+          .histoire-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+          }
+
+          .histoire-dot {
+            left: 0px;
+          }
+        }
+      }
+      .histoire-conclusion{
+      .histoire-conclusion-content{
+        width: 100%;
+        gap: 10px;
+        img{
+          padding: 0;
+        }
+      }
+      }
+    }
+  }
+}

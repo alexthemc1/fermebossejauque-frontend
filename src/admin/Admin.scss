@@ -1,0 +1,315 @@
+@import '../styles/variables.scss';
+
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $background-color;
+
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+  background-color: $bouton-color1;
+  color: $secondary-color;
+  width: 100%;
+
+  h1 {
+    margin: 0;
+    font-size: $font-medium;
+  }
+
+  .bouton2 {
+    font-size: $font-base;
+    font-weight: 700;
+    padding: 10px 15px;
+  }
+}
+
+.admin-content {
+  display: flex;
+  flex: 1;
+}
+
+.admin-sidebar {
+  width: 250px;
+  background-color: $bouton-color2;
+  color: $secondary-color;
+  font-weight: 700;
+
+  ul {
+    list-style: none;
+    text-align: center;
+  }
+
+  a {
+    display: flex;
+    padding: 1rem;
+    color: $secondary-color;
+    text-decoration: none;
+    border-bottom: $secondary-color 1px solid;
+    flex-direction: column;
+    align-items: center;
+
+    &:hover {
+      background-color: $bouton-color2-darken;
+    }
+  }
+}
+
+.admin-main {
+  width: 100%;
+  flex: 1;
+  padding: 1rem;
+}
+
+// Styles pour les tableaux dans l'admin
+.produits-table,
+.annonces-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  box-shadow: $box-shadow-light;
+
+  th,
+  td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid $secondary-color-light;
+  }
+
+  th {
+    background-color: $secondary-color-light;
+    font-weight: bold;
+    color: $text-color;
+  }
+
+  tr:hover {
+    background-color: $secondary-color-light;
+  }
+}
+
+.add-button {
+  padding: 0.5rem 1rem;
+  background-color: $bouton-color1;
+  color: $secondary-color;
+  border: none;
+  border-radius: $border-radius-small;
+  cursor: pointer;
+  margin-bottom: 1rem;
+
+
+  &:hover {
+    background-color: $bouton-color1;
+  }
+}
+
+.edit-button,
+.delete-button {
+  padding: 0.25rem 0.5rem;
+  color: $secondary-color;
+  border: none;
+  border-radius: $border-radius-small;
+  cursor: pointer;
+  margin-right: 0.5rem;
+
+}
+
+.edit-button {
+  background-color: $bouton-color1;
+
+  &:hover {
+    background-color: $bouton-color1;
+  }
+}
+
+.delete-button {
+  background-color: $bouton-color3;
+
+  &:hover {
+    background-color: $bouton-color3-darken;
+  }
+}
+
+// Styles pour la page de connexion admin
+.admin-login-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px); // Hauteur totale moins la hauteur du header
+  background-color: $background-color;
+}
+
+.admin-login-form {
+  background-size: cover;
+  background-color: $secondary-color;
+  padding: 2rem;
+  z-index: 1;
+  border-radius: $border-radius-medium;
+  box-shadow: $box-shadow-medium;
+  width: 100%;
+  max-width: 400px;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: $text-color;
+    font-size: $font-large;
+  }
+
+  .error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: $border-radius-small;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: $text-color;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid $secondary-color-light;
+      border-radius: $border-radius-small;
+      font-size: $font-base;
+
+    }
+  }
+
+  .login-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: $bouton-color1;
+    color: $secondary-color;
+    border: none;
+    border-radius: $border-radius-small;
+    font-size: $font-base;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: 700;
+
+    &:hover {
+      background-color: $bouton-color1;
+    }
+  }
+}
+
+.admin-login-form {
+  position: relative;
+
+  &::before {
+    background-image: url('../../public/assets/images/fermelogo.png');
+  }
+}
+
+.admin-login-form {
+  &::before {
+    opacity: 0.1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+}
+
+// Styles pour le tableau de bord
+.dashboard-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background-color: $secondary-color;
+  padding: 1.5rem;
+  border-radius: $border-radius-medium;
+  box-shadow: $box-shadow-light;
+  flex: 1;
+  min-width: 200px;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: $text-color;
+    font-size: $font-medium;
+  }
+
+  .stat-number {
+    font-size: $font-large;
+    font-weight: bold;
+    color: $bouton-color1;
+    margin: 0;
+  }
+}
+
+.recent-activity {
+  background-color: $secondary-color;
+  padding: 1.5rem;
+  border-radius: $border-radius-medium;
+  box-shadow: $box-shadow-light;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: $text-color;
+    font-size: $font-medium;
+  }
+
+  ul {
+    padding-left: 1.5rem;
+    margin: 0;
+
+    li {
+      margin-bottom: 0.5rem;
+      color: $text-color-light;
+    }
+  }
+}
+
+.admin-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: $font-medium;
+  color: $text-color;
+  background-color: $background-color;
+}
+
+@media (max-width: 768px) {
+  .admin-header {
+    h1 {
+      font-size: $font-base;
+    }
+  }
+
+  .admin-sidebar {
+    width: 100px;
+  }
+
+  .admin-main {
+    padding: 0;
+    width: calc(100% - 100px);
+  }
+
+  .dashboard-stats {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,476 @@
+@import '../../styles/variables.scss';
+
+.annonce-admin {
+  padding: 20px;
+  background-color: $background-color;
+
+  h1 {
+    margin-bottom: 20px;
+    font-size: $font-xlarge;
+    color: $primary-color;
+
+    font-weight: 700;
+  }
+
+  .error {
+    background-color: $secondary-color;
+    color: $bouton-color3;
+    padding: 15px;
+    border-radius: $border-radius-small;
+    margin-bottom: 20px;
+    border-left: 5px solid $bouton-color3;
+    font-size: $font-base;
+  }
+
+  .btn-ajout {
+    @extend .bouton1;
+    padding: 10px 15px;
+    font-size: $font-base;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .annonce-form-container {
+    background-color: $secondary-color;
+    border-radius: $border-radius-medium;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: $box-shadow-light;
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: $font-large;
+      color: $primary-color;
+      font-weight: 700;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: $primary-color;
+        font-size: $font-base;
+      }
+
+      input[type="text"],
+      input[type="file"],
+      textarea,
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid $secondary-color-light;
+        border-radius: $border-radius-small;
+        font-size: $font-base;
+        color: $text-color;
+        background-color: $secondary-color;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: $bouton-color1;
+          box-shadow: 0 0 0 2px rgba(140, 198, 62, 0.2);
+        }
+      }
+
+      textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+
+      &.checkbox {
+        display: flex;
+        align-items: center;
+
+        input[type="checkbox"] {
+          margin-right: 10px;
+          width: auto;
+          accent-color: $bouton-color1;
+        }
+
+        label {
+          margin-bottom: 0;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .image-preview {
+      margin-top: 10px;
+
+      img {
+        max-width: 100%;
+        max-height: 200px;
+        border: 1px solid $secondary-color-light;
+        border-radius: $border-radius-small;
+        padding: 5px;
+        background-color: $secondary-color;
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+
+      .btn-sauver {
+        @extend .bouton1;
+        padding: 10px 15px;
+        font-size: $font-base;
+        margin: 0;
+        font-weight: 700;
+      }
+
+      .btn-annuler {
+        @extend .bouton2;
+        padding: 10px 15px;
+        font-size: $font-base;
+        font-weight: 700;
+        margin: 0;
+        background-color: $bouton-color3;
+        ;
+
+        &:hover {
+          background-color: $bouton-color3-darken;
+        }
+      }
+    }
+  }
+
+  .annonces-list {
+    h2 {
+      margin-bottom: 20px;
+      font-size: $font-large;
+      color: $primary-color;
+      font-weight: 700;
+    }
+
+    .no-data {
+      text-align: center;
+      padding: 40px 20px;
+      color: $text-color-light;
+      font-size: $font-base;
+      background-color: $secondary-color;
+      border-radius: $border-radius-medium;
+    }
+
+    .annonces-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 20px;
+    }
+
+    .annonce-card {
+      background-color: $secondary-color;
+      border-radius: $border-radius-medium;
+      box-shadow: $box-shadow-light;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: $box-shadow-medium;
+      }
+
+      .annonce-card-image {
+        height: 200px;
+        overflow: hidden;
+        background-color: $secondary-color-light;
+
+        .annonce-thumbnail {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover .annonce-thumbnail {
+          transform: scale(1.05);
+        }
+      }
+
+      .annonce-card-content {
+        padding: 15px;
+        flex-grow: 1;
+
+        .annonce-title {
+          margin-bottom: 10px;
+          font-size: $font-medium;
+          color: $primary-color;
+          font-weight: 700;
+          line-height: 1.3;
+        }
+
+        .annonce-description {
+          margin-bottom: 15px;
+          color: $text-color;
+          font-size: $font-base;
+          line-height: 1.5;
+        }
+
+        .annonce-meta {
+          display: flex;
+          gap: 5px;
+          justify-content: space-evenly;
+          align-items: center;
+
+          .meta-item {
+            font-size: $font-small;
+            color: $text-color-light;
+
+            strong {
+              color: $primary-color;
+            }
+
+          }
+
+          .status {
+            padding: 4px 8px;
+            border-radius: $border-radius-small;
+            background-color: $secondary-color-light;
+
+            &.new {
+              background-color: $bouton-color1;
+              color: $secondary-color;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+
+      .annonce-card-actions {
+        padding: 15px;
+        display: flex;
+        gap: 8px;
+        border-top: 1px solid $secondary-color-light;
+
+        button {
+          flex: 1;
+          padding: 8px 12px;
+          border: none;
+          border-radius: $border-radius-small;
+          cursor: pointer;
+          font-size: $font-small;
+          transition: all 0.3s ease;
+          font-weight: 700;
+
+
+          &.btn-sup {
+            background-color: $bouton-color3;
+            color: $secondary-color;
+
+            &:hover {
+              background-color: $bouton-color3-darken;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .loading {
+    text-align: center;
+    padding: 20px;
+    font-size: $font-medium;
+    color: $text-color-light;
+
+  }
+
+  // Responsive design
+  @media (max-width: 1024px) {
+    .annonce-admin {
+      .annonces-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 15px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 15px;
+
+    h1 {
+      font-size: $font-large;
+      text-align: center;
+    }
+
+    .annonce-form-container {
+      padding: 15px;
+
+      h2 {
+        font-size: $font-medium;
+        text-align: center;
+      }
+
+      .form-actions {
+        flex-direction: column;
+        gap: 10px;
+
+        button {
+          width: 100%;
+        }
+      }
+    }
+
+    .annonces-list {
+      h2 {
+        font-size: $font-medium;
+        text-align: center;
+      }
+
+      .annonces-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .annonce-card {
+        .annonce-card-image {
+          height: 180px;
+        }
+
+        .annonce-card-content {
+          padding: 12px;
+
+          .annonce-meta {
+            gap: 8px;
+            flex-direction: column;
+          }
+        }
+
+        .annonce-card-actions {
+          padding: 12px;
+          flex-direction: column;
+
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .btn-ajout {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .annonces-list {
+      table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+
+        th,
+        td {
+          min-width: 100px;
+        }
+      }
+    }
+  }
+}
+
+.ajout-horaire-form {
+  background-color: $secondary-color;
+  padding: 1.5rem;
+  border-radius: $border-radius-medium;
+  margin-bottom: 2rem;
+  box-shadow: $box-shadow-light;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: $primary-color;
+    font-size: $font-large;
+    font-weight: 700;
+  }
+
+  form {
+    align-items: flex-end;
+  }
+
+
+  .ajout-button {
+    background-color: $bouton-color1;
+    color: $secondary-color;
+    border: none;
+    padding: 10px 15px;
+    border-radius: $border-radius-medium;
+    cursor: pointer;
+    font-size: $font-base;
+
+    &:hover {
+      background-color: $bouton-color1-darken;
+    }
+  }
+}
+
+.horaires-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: $secondary-color;
+  box-shadow: $box-shadow-light;
+  border-radius: $border-radius-small;
+  overflow: hidden;
+
+  th,
+  td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid $secondary-color-light;
+  }
+
+  th {
+    background-color: $secondary-color-light;
+    font-weight: bold;
+    color: $primary-color;
+    font-size: $font-base;
+  }
+
+  td {
+    color: $text-color;
+    font-size: $font-base;
+  }
+
+  tr {
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $secondary-color-light;
+    }
+  }
+
+  .edit-button,
+  .delete-button,
+  .save-button,
+  .cancel-button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: $border-radius-small;
+    cursor: pointer;
+    font-size: $font-small;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-sup {
+    background-color: $bouton-color3;
+    color: $secondary-color;
+
+    &:hover {
+      background-color: $bouton-color3-darken;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .horaires-admin .ajout-horaire-form form {
+    align-items: center;
+  }
+}

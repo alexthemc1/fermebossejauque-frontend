@@ -1,0 +1,220 @@
+@import '../../styles/variables.scss';
+
+.horaires-admin {
+  padding: 1rem;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    margin-bottom: 1.5rem;
+    color: $text-color;
+  }
+
+  .ajout-horaire-form {
+    background-color: $secondary-color;
+    padding: 1.5rem;
+    border-radius: $border-radius-medium;
+    margin-bottom: 2rem;
+    box-shadow: $box-shadow-light;
+
+    form {
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+
+      .form-group {
+        margin-bottom: 1rem;
+        width: 100%;
+
+        label {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-weight: 700;
+          color: $text-color;
+        }
+
+        input,
+        select {
+          width: 100%;
+          padding: 0.5rem;
+          border: 1px solid $secondary-color-light;
+          border-radius: $border-radius-small;
+          font-size: $font-base;
+
+
+          &:focus {
+            outline: none;
+            border-color: $bouton-color1;
+            box-shadow: 0 0 0 2px rgba(140, 198, 62, 0.25);
+          }
+
+          &:disabled {
+            background-color: $secondary-color-light;
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+
+    .ajout-button {
+      background-color: $bouton-color1;
+      color: $secondary-color;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: $border-radius-small;
+      cursor: pointer;
+      font-size: $font-base;
+      font-weight: 700;
+      padding: 7px 15px;
+
+      &:hover {
+        background-color: $bouton-color1-darken;
+      }
+    }
+  }
+
+  // Tableau des horaires
+  .horaires-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    box-shadow: $box-shadow-light;
+
+    th,
+    td {
+      padding: 0.4rem;
+      text-align: left;
+      border-bottom: 1px solid $secondary-color-light;
+    }
+
+    th {
+      background-color: $secondary-color-light;
+      font-weight: 700;
+      color: $text-color;
+    }
+
+    tr:hover {
+      background-color: $secondary-color-light;
+    }
+
+    .edition-button,
+    .supprimer-button,
+    .sauver-button,
+    .annuler-button {
+      padding: 7px 15px;
+      margin: 0 5px;
+      border: none;
+      border-radius: $border-radius-small;
+      cursor: pointer;
+      font-size: $font-base;
+      font-weight: 700;
+      color: $secondary-color;
+    }
+
+    .edition-button {
+      background-color: $bouton-color2;
+
+      &:hover {
+        background-color: $bouton-color2-darken;
+      }
+    }
+
+    .supprimer-button {
+      background-color: $bouton-color3;
+
+      &:hover {
+        background-color: $bouton-color3-darken;
+      }
+    }
+
+    .sauver-button {
+      background-color: $bouton-color1;
+
+      &:hover {
+        background-color: $bouton-color1-darken;
+      }
+    }
+
+    .annuler-button {
+      background-color: $bouton-color3;
+
+      &:hover {
+        background-color: $bouton-color3-darken;
+      }
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 0.25rem;
+      border: 1px solid $secondary-color-light;
+      border-radius: $border-radius-small;
+
+
+      &:focus {
+        outline: none;
+        border-color: $bouton-color1;
+      }
+
+      &:disabled {
+        background-color: $secondary-color-light;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  // Message d'erreur
+  .error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: $border-radius-small;
+    border: 1px solid #f5c6cb;
+  }
+}
+
+// Styles responsifs pour l'administration des horaires
+@media (max-width: 992px) {
+  .horaires-admin {
+    .horaires-table {
+
+      th,
+      td {
+        padding: 0.5rem;
+      }
+
+      .edition-button,
+      .supprimer-button,
+      .sauver-button,
+      .annuler-button {
+        padding: 0.2rem 0.4rem;
+        font-size: $font-small;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .horaires-admin {
+    h1 {
+      text-align: center;
+    }
+
+    .horaires-table {
+      display: block;
+      overflow-x: auto;
+
+      th,
+      td {
+        white-space: nowrap;
+      }
+    }
+
+    h2 {
+      font-size: $font-medium;
+    }
+  }
+}

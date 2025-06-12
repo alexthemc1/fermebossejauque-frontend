@@ -1,0 +1,146 @@
+@import './variables.scss';
+
+.contact-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  .contact-titre {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: $primary-color;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "horaires horaires coordonnees"
+      "paiement map map";
+    gap: 2rem;
+    margin-bottom: 3rem;
+
+    .contact-section:nth-child(1) {
+      grid-area: horaires;
+    }
+
+    .contact-section:nth-child(2) {
+      grid-area: map;
+    }
+
+    .contact-section:nth-child(3) {
+      grid-area: coordonnees;
+    }
+
+    .contact-section:nth-child(4) {
+      grid-area: paiement;
+    }
+
+    .contact-section {
+      background-color: $secondary-color;
+      padding: 1.5rem;
+      border-radius: $border-radius-medium;
+      box-shadow: $box-shadow-light;
+      min-height: 450px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h2 {
+        color: $primary-color;
+        margin-bottom: 1rem;
+      }
+
+      .contact-list {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin-bottom: 1rem;
+          display: flex;
+          flex-direction: column;
+          font-size: $font-base;
+
+          span {
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+
+            img {
+              height: 1rem;
+              filter: invert(1);
+              padding-right: 10px;
+            }
+          }
+
+          a {
+            color: $bouton-color1;
+            text-decoration: none;
+            transition: color 0.3s;
+
+            &:hover {
+              color: $bouton-color1-darken;
+              text-decoration: underline;
+            }
+          }
+
+          address {
+            font-style: normal;
+          }
+        }
+      }
+
+      iframe {
+        max-height: 350px;
+      }
+
+    }
+
+    .paiement-info p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+      font-size: $font-base;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .contact-container .contact-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "horaires horaires"
+      "coordonnees map"
+      "paiement paiement";
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 1rem;
+    text-align: center;
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "horaires"
+        "map"
+        "coordonnees"
+        "paiement";
+
+      .contact-section:nth-child(1) {
+        .horaires-main {
+          flex-direction: column;
+          max-width: 100%;
+
+          .horaires-magasin,
+          .horaires-boucherie {
+            width: 100%;
+          }
+        }
+      }
+      .contact-section{
+        padding: 0.5rem;
+        width: 100%;
+      }
+    }
+  }
+}

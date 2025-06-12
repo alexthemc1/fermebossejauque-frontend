@@ -1,0 +1,86 @@
+$background-color: #f4f4f4;
+
+$primary-color: #000000;
+$secondary-color: #ffffff;
+$secondary-color-light: #dfdfdf;
+$secondary-color-bold: #585858;
+
+$bouton-color1: #8cc63e;
+$bouton-color2: #FCB040;
+$bouton-color3: #e45a3b;
+
+$bouton-color1-darken: #74a336;
+$bouton-color2-darken: #d39539;
+$bouton-color3-darken: #b35641;
+$text-color: #000000;
+$text-color-light: #818286;
+
+
+$font-small: 0.875rem;
+$font-base: 1rem;
+$font-medium: 1.25rem;
+$font-large: 2rem;
+$font-xlarge: 3rem;
+
+$box-shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+$box-shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.15);
+
+$border-radius-small: 0.3rem;
+$border-radius-medium: 0.7rem;
+$border-radius-large: 1rem;
+
+$texte-police: 'Arial', sans-serif;
+
+p, h1, h2,h3, a, li, ul, ol {
+  font-family: $texte-police;
+}
+
+.bouton1,
+.bouton2 {
+  display: inline-block;
+  background-color: $bouton-color1;
+  color: $secondary-color;
+  padding: 10px 30px;
+  border-radius: $border-radius-medium;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-size: $font-medium;
+  font-weight: 700;
+  border:none;
+  &:hover {
+    background-color: $bouton-color1-darken;
+  }
+}
+
+.bouton2 {
+  background-color: $bouton-color2;
+  &:hover {
+    background-color: $bouton-color2-darken;
+  }
+}
+h1 {
+  font-size: $font-xlarge;
+}
+h2 {
+  margin-bottom: 2rem;
+  font-size: $font-large;
+  font-weight: 700;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+strong {
+  font-weight: bold;
+}
+
+@media  (max-width: 768px) {
+  h1{
+    font-size: $font-large;
+  }
+  h2{
+    font-size: $font-medium;
+  }
+}

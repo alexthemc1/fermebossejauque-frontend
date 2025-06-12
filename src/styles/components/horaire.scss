@@ -1,0 +1,108 @@
+    .horaires-container {
+      width: 100%;
+      padding-inline: 10px;
+      display: flex;
+      flex-direction: column;
+
+      .horaires-main {
+        max-width: 700px;
+        width: 100%;
+        display: flex;
+        gap: 2rem;
+
+        .horaires-magasin,
+        .horaires-boucherie {
+          flex: 1;
+          width: 50%;
+        }
+      }
+    }
+  
+
+
+.horaires-card {
+  background-color: $secondary-color;
+  border-radius: $border-radius-large;
+  box-shadow: $box-shadow-medium;
+  padding: 10px;
+
+
+  .horaires-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+
+    .horaires-icon {
+      img {
+        height: 1.5rem;
+      }
+    }
+
+    h3 {
+      font-size: $font-medium;
+      font-weight: 700;
+      color:$bouton-color1;
+    }
+  }
+
+  .horaires-liste {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    .horaires-jour {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 0.5rem;
+      color:$text-color;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .jour {
+        font-weight: 500;
+      }
+
+      .heures {
+        color: $secondary-color-bold;
+      }
+    }
+  }
+}
+
+.horaires-boucherie .horaires-card {
+  position: relative;
+
+  &::before {
+    background-image: url("../assets/images/boucherielogo.png");
+    background-color: #fcb040;
+    border-radius: $border-radius-large;
+  }
+}
+
+.horaires-magasin .horaires-card {
+  position: relative;
+
+  &::before {
+    background-image: url("../assets/images/fermelogo.png");
+  }
+}
+
+.horaires-boucherie .horaires-card,
+.horaires-magasin .horaires-card {
+  &::before {
+    opacity: 0.1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+}

@@ -1,0 +1,161 @@
+.navbar {
+  background-color: $secondary-color;
+  width: 100%;
+
+  .navbar-container,
+  .infos {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 25px;
+    color: $secondary-color;
+  }
+
+  .navbar-infos {
+    background-color: $bouton-color1;
+    width: 100%;
+  }
+
+  .infos {
+    display: flex;
+    justify-content: space-between;
+    height: 45px;
+
+    ul,
+    li {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+      font-size: $font-base;
+      font-weight: bold;
+
+      .infos-item {
+        padding-block: 5px;
+        a{
+          color: $secondary-color;
+        }
+        img {
+          height: $font-medium;
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      height: auto;
+      padding: 0 10px;
+      .infos-gauche,
+      .infos-droite {
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .infos-gauche {
+        align-items: flex-start;
+      }
+
+      .infos-item a, p{
+        font-size: $font-small;
+      }
+    }
+  }
+
+  .navbar-navigation {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    img {
+      height: 1.5rem;
+    }
+  }
+
+  .navbar-logo {
+    padding-block: 5px;
+
+    .navbar-logo-img {
+      height: 50px;
+
+      @media (max-width: 768px) {
+        height: 45px;
+      }
+    }
+  }
+
+  .mobile-menu-zone {
+    display: none;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .fermer-menu-btn {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: none;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
+
+  .navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 12px;
+
+    .navbar-item {
+      margin-left: 10px;
+
+      .navbar-lien {
+        color: black;
+        text-decoration: none;
+        font-size: $font-base;
+        font-weight: bold;
+      }
+    }
+
+    @media (max-width: 768px) {
+      position: fixed;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 60px);
+      background-color: $secondary-color;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      transition: top 0.3s ease;
+      z-index: 999;
+
+      &.mobile-active {
+        top: 60px;
+      }
+
+      .navbar-item {
+        margin: 15px 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .navbar-container {
+      padding: 0 10px;
+    }
+  }
+
+}
