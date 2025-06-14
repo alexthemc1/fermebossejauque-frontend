@@ -85,7 +85,7 @@ const ListeAnnonces = () => {
     description = "Épaulée par sa famille, Laurence déborde d’énergie et de créativité. Elle organise au fil des saisons de nombreux événements conviviaux : journées portes ouvertes, petits-déjeuners à la ferme, activités pédagogiques pour enfants, journées de l’artisanat, projections de cinéma rural, et bien d'autres encore.";
   } else if (categorie === 'recettes') {
     titre = "Nos recettes";
-    description = "Découvrez toutes nos recettes";
+    description = "Laurence vous accompagne en cuisine avec des recettes simples et accessibles à tous. L’occasion de redécouvrir les produits du magasin de la ferme autrement, avec des idées faciles à réaliser au quotidien. Légumes de saison, viande, fromages… une cuisine pleine de goût, à partager en famille ou entre amis.";
   }
 
   return (
